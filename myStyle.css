@@ -1,0 +1,12 @@
+body{
+    height: 900px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#container{
+    background-color: antiquewhite;
+    width: 500px;
+    height: 500px;
+}
