@@ -14,28 +14,14 @@ let userChoice=16;
 changeButton.style.margin='20px';
 container.style.boxShadow='6px 6px 10px rgba(0,0,0,0.15), -6px -6px 10px rgba(0,0,0,0.15)';
 
-changeButton.addEventListener('click', function(){
-    userChoice= + prompt('Please select a number up to 100');
-    container.innerHTML='';
-    if (userChoice>=100){
-        alert('to big of a number');
-        userChoice= + prompt('Please select a number up to 100');
-    }
-    console.log(userChoice);
-    createGridRow();
-    colorHover();
-})
-
-let gridCell;
-
 function createGridRow(){
     let gridDivRow;
+    let gridCell;
     for (let i=0; i<userChoice; i++){
         gridDivRow=document.createElement('div');
         gridDivRow.style.height=`${480/userChoice}px`;
         gridDivRow.className='gridDivRow';
         gridDivRow.style.display='flex';
-        gridDivRow.style.backgroundColor='white';
         container.appendChild(gridDivRow);
         for (let j=0; j<userChoice; j++){
             gridCell=document.createElement('div');
@@ -45,18 +31,26 @@ function createGridRow(){
             gridDivRow.appendChild(gridCell);
         }
     }
+    let allCells=document.querySelectorAll('div.gridCell');
+    function colorHover(){
+        allCells.forEach(function(item){
+            item.addEventListener('mouseover', function(){
+                item.style.backgroundColor='black';
+            })
+        })
     }
+    colorHover();
+}
 
 createGridRow();
 
-const allCells=document.querySelectorAll('div.gridCell');
-
-function colorHover(){
-    allCells.forEach(function(item){
-        item.addEventListener('mouseover', function(){
-            item.style.backgroundColor='black';
-        })
-    })
-}
-
-colorHover();
+changeButton.addEventListener('click', function(){
+    userChoice= + prompt('Please select a number up to 100');
+    container.innerHTML='';
+    if (userChoice>=100){
+        alert('to big of a number');
+        userChoice= + prompt('Please select a number up to 100');
+    }
+    console.log(userChoice);
+    createGridRow();
+})
