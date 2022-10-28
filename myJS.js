@@ -1,12 +1,4 @@
 
-//creare buton ok
-//la apasare buton, apare prompt si ia valoarea trecuta
-//o memoreaza in user choice ok
-//max numar 100 ok
-//resetare container inainte de a se shimba nr ok
-//width si height fiecare div la 480/userChooice ok
-//mai e de facut sa se faca pentru fiecare div column
-
 let container=document.querySelector("#container");
 const changeButton=document.querySelector('#changeButton');
 let userChoice=16;
